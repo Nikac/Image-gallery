@@ -1,0 +1,54 @@
+<div class="container">
+		<mat-form-field class="formField">
+		    <input 
+		    	matInput 
+		    	placeholder="Search for Images" 
+		    	name="searchImg" 
+		    	class="example-full-width search"
+		    	[(ngModel)]="searchImg"
+		    	(keyup.enter)="onSerachImage(searchImg)">
+		 </mat-form-field>
+		 <br>
+		 <button 
+		 	mat-raised-button 
+		 	class="searchButton"
+		 	(click)="onSerachImage(searchImg)">Find images</button>
+	
+
+
+<!-- 	 <mat-card *ngIf="loading">
+	 	<div class="spinner"></div>
+	 </mat-card> -->
+	 <p *ngIf="loading">Please fill in the right word.</p>
+
+ 	  <h1 *ngIf="loadingResult">Results</h1>
+ 	  <ng-masonry-grid
+                    [masonryOptions]="{ transitionDuration: '0.8s', gutter: 25 }" 
+                    [useAnimation]="true"
+                    [useImagesLoaded]="true"
+                    [scrollAnimationOptions]="{ animationEffect: 'effect-8', minDuration : 0.2, maxDuration : 0.5 }">
+      <!-- Masonry Grid Item -->
+      <ng-masonry-grid-item 
+      	id="{{'masonry-item-'+i}}" 
+      	*ngFor="let image of images; let i = index;"
+      	(click)="removeItem($event)"
+      	class="grid-item"> 
+	        <!-- Grid Content  -->
+	        <a href="{{ image.pageURL }}" class="imgLink">
+	        	<img src="{{ image.webformatURL }}" alt="No image" />
+		        <div class="content-card">
+		        	<p mat-card-content><strong>User: {{ image.user }}</strong></p>
+			        <p mat-card-content><strong>Tags:</strong> {{ image.tags }}</p>
+			        <p mat-card-content><strong>Comments:</strong> {{ image.comments }}</p>
+			        <p mat-card-content><strong>Likes:</strong> {{ image.likes }}</p>
+		        </div>
+	        </a>
+      </ng-masonry-grid-item>
+    </ng-masonry-grid>
+</div>
+	 
+
+
+
+
+

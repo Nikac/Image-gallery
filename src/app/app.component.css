@@ -1,0 +1,23 @@
+.navbar {
+	width: 100%;
+	height: 70px;
+	background: #CA1740;
+	padding-top: 15px;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.navbar p {
+	color: black;
+	margin-top: 4px;
+	margin-left: 30px;
+	text-decoration: none;
+	font-size: 40px;
+	float: left;
+}
+
+.pixabyLogo {
+	float: left;
+	width: 40px;
+	margin-left: 50px;
+}
